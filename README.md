@@ -1,3 +1,3 @@
-Nome: Eduardo Felipe Rogacheski\n
-Matricula: 2021153418
+Nome: Eduardo Felipe Rogacheski<br>
+Matricula: 2021153418<br>
 Turma: CT05SNA
