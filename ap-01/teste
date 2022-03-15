@@ -16,9 +16,26 @@ public:
 
 class GerenciadorAluguel
 {
+private:
+  AluguelCarro _aluguelCarro;
+  AluguelBicicleta _aluguelBicicleta;
+
 public:
   void imprimir();
 };
+
+-------------------------
+  void GerenciadorAluguel::imprimir()
+  {
+    cout << setfill('0') << "Data inicial de aluguel: " << setw(2) << _aluguelCarro._dataInicio._dia << "/" << setw(2) << _aluguelCarro._dataInicio._mes << "/" << setw(4) << _aluguelCarro._dataInicio._ano << endl;
+    cout << setfill('0') << "Data final de aluguel: " << setw(2) << _aluguelCarro._dataEntrega._dia << "/" << setw(2) << _aluguelCarro._dataEntrega._mes << "/" << setw(4) << _aluguelCarro._dataEntrega._ano << endl;
+    cout << "Codigo: " << _aluguelCarro._carro._codigo << endl;
+    cout << "Cor: " << _aluguelCarro._carro._cor << endl;
+    cout << "Placa: " << _aluguelCarro._carro._placa << endl;
+    cout << "Combustivel: " << _aluguelCarro._carro._combustivel << endl;
+    cout << "Quilometragem: " << _aluguelCarro
+  }
+-------------------------
 
 class Cliente
 {
