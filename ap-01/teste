@@ -1,0 +1,128 @@
+#pragma once
+
+class AluguelCarro
+{
+private:
+  Data _dataInicio;
+  Data _dataEntrega;
+  Carro _carro;
+  Cliente _cliente;
+  
+public:
+  AluguelCarro(Cliente &cliente, Carro &carro, Data &dataInicio) : _cliente(cliente), _carro(carro), _dataInicio(dataInicio) {};
+  void realizarDevolucao(Data &dataEntrega) { _dataEntrega = dataEntrega };
+  float calcularTotal() { return (((_dataEntrega._ano - _dataInicio._ano) * 365) + ((_dataEntrega._mes - _dataInicio._mes) * 30) + (_dataEntrega._dia - _dataInicio._dia)) * _carro._valor };
+};
+
+class GerenciadorAluguel
+{
+public:
+  void imprimir();
+};
+
+class Cliente
+{
+private:
+  int _codigo;
+  std::string _nome;
+  Data _aniversario;
+  
+public:
+  Cliente();
+  Cliente(int codigo, std::string nome, Data aniversario);
+  void imprime();
+};
+
+class Data
+{
+private:
+  int _dia;
+  int _mes;
+  int _ano;
+  
+public:
+  Data(int dia, int mes, int ano);
+  void setDia(int dia);
+  void setMes(int mes);
+  void setAno(int ano);
+  int getDia();
+  int getMes();
+  int getAno();
+  int subtrair(Data outraData);
+  void imprime();
+};
+
+class AluguelBicicleta
+{
+private:
+  Data _dataInicio;
+  Data _dataEntrega;
+  
+public:
+  AluguelBicicleta(Cliente &cliente, Bicicleta &bicicleta, Data &dataInicio);
+  void realizarDevolucao(Data dataEntrega);
+  float calcularTotal();
+};
+
+class Bicicleta
+{
+private:
+  int _codigo;
+  std::string _placa;
+  std::string _cor;
+  int _valor;
+  bool _disponivel;
+  
+public:
+  Bicicleta();
+  void setCodigo(int codigo);
+  void setPlaca(std::string placa);
+  void setCor(std::string);
+  void setValor(int valor);
+  int getCodigo();
+  std::string getPlaca();
+  std::string getCor();
+  int getValor();
+  void imprime();
+  void aluga();
+  void devolve();
+};
+
+class Carro
+{
+private:
+  int _codigo;
+  std::string _placa;
+  std::string _cor;
+  TipoCombustivel _combustivel;
+  int _quilometragem;
+  float _valor;
+  bool _disponivel;
+  
+public:
+  Carro();
+  void setCodigo(int codigo);
+  void setPlaca(std::string placa);
+  void setCor(std::string cor);
+  void setCombustivel(TipoCombustivel combustivel);
+  void setValor(float valor);
+  int getCodigo();
+  std::string getPlaca();
+  std::string getCor();
+  TipoCombustivel getCombustivel();
+  int getQuilometragem();
+  float getValor();
+  void imprime();
+  void incrementaQuilometragem();
+  void aluga();
+  void devolve();
+};
+
+class TipoCombustivel
+{
+public:
+  1 GASOLINA;
+  2 ALCOOL;
+  3 HIBRIDO;
+  4 ELETRICO;
+};
