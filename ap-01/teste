@@ -11,7 +11,7 @@ private:
 public:
   AluguelCarro(Cliente &cliente, Carro &carro, Data &dataInicio) : _cliente(cliente), _carro(carro), _dataInicio(dataInicio) {};
   void realizarDevolucao(Data &dataEntrega) { _dataEntrega = dataEntrega };
-  float calcularTotal() { return (((_dataEntrega._ano - _dataInicio._ano) * 365) + ((_dataEntrega._mes - _dataInicio._mes) * 30) + (_dataEntrega._dia - _dataInicio._dia)) * _carro._valor };
+  float calcularTotal const() { return (((_dataEntrega._ano - _dataInicio._ano) * 365) + ((_dataEntrega._mes - _dataInicio._mes) * 30) + (_dataEntrega._dia - _dataInicio._dia)) * _carro._valor };
 };
 
 class GerenciadorAluguel
@@ -21,34 +21,45 @@ private:
   AluguelBicicleta _aluguelBicicleta;
 
 public:
-  void imprimir();
+  void imprimir() const;
 };
 
 -------------------------
-  void GerenciadorAluguel::imprimir()
+  void GerenciadorAluguel::imprimir const()
   {
-    cout << setfill('0') << "Data inicial de aluguel: " << setw(2) << _aluguelCarro._dataInicio._dia << "/" << setw(2) << _aluguelCarro._dataInicio._mes << "/" << setw(4) << _aluguelCarro._dataInicio._ano << endl;
-    cout << setfill('0') << "Data final de aluguel: " << setw(2) << _aluguelCarro._dataEntrega._dia << "/" << setw(2) << _aluguelCarro._dataEntrega._mes << "/" << setw(4) << _aluguelCarro._dataEntrega._ano << endl;
+    cout << setfill('0') << "Data inicial de aluguel: "; _aluguelCarro._dataInicio._imprime();
+    cout << setfill('0') << "Data final de aluguel: "; _aluguelCarro_dataEntrega._imprime();
     cout << "Codigo: " << _aluguelCarro._carro._codigo << endl;
     cout << "Cor: " << _aluguelCarro._carro._cor << endl;
     cout << "Placa: " << _aluguelCarro._carro._placa << endl;
     cout << "Combustivel: " << _aluguelCarro._carro._combustivel << endl;
-    cout << "Quilometragem: " << _aluguelCarro
+    cout << "Quilometragem: " << _aluguelCarro._carro._quilometragem << endl;
+    cout << "Valor: " << _aluguelCarro._carro._valor << endl;
+    cout << "Disponível: " << __aluguelCarro._carro._disponivel << endl;
   }
 -------------------------
 
 class Cliente
 {
 private:
-  int _codigo;
-  std::string _nome;
+  int _codigo = 0;
+  std::string _nome = "";
   Data _aniversario;
   
 public:
   Cliente();
-  Cliente(int codigo, std::string nome, Data aniversario);
-  void imprime();
+  Cliente(int codigo, std::string nome, Data &aniversario) : _codigo(codigo), _nome(nome), _aniversario(aniversario) {};
+  void imprime const();
 };
+
+------------------------------------
+void Cliente::imprime const()
+{
+  cout << "Codigo: " << _codigo << endl;
+  cout << "Nome: " << _nome << endl;
+  cout << setfill('0') << "Aniversario: "; _aniversario._imprime();
+}
+------------------------------------
 
 class Data
 {
@@ -58,15 +69,15 @@ private:
   int _ano;
   
 public:
-  Data(int dia, int mes, int ano);
-  void setDia(int dia);
-  void setMes(int mes);
-  void setAno(int ano);
-  int getDia();
-  int getMes();
-  int getAno();
+  Data(int dia, int mes, int ano) : _dia(dia), _mes(mes), _ano(ano) {};
+  void setDia(int dia) { _dia = dia; };
+  void setMes(int mes) { _mes = mes; };
+  void setAno(int ano) { _ano = ano; };
+  int getDia() { return _dia; };
+  int getMes() { return _mes; };
+  int getAno() { return _ano; };
   int subtrair(Data outraData);
-  void imprime();
+  void imprime() { cout << setfill('0') << setw(2) << _dia << "/" << setw(2) << "/" << setw(4) << _ano << endl; };
 };
 
 class AluguelBicicleta
