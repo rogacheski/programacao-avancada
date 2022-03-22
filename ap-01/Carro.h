@@ -3,7 +3,7 @@
 #include "TipoCombustivel.h"
 #include "Veiculo.h"
 
-class Carro
+class Carro : public Veiculo
 {
 private:
 	TipoCombustivel _combustivel;
