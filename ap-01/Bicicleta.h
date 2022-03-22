@@ -2,7 +2,7 @@
 #include <string>
 #include "Veiculo.h"
 
-class Bicicleta
+class Bicicleta : public Veiculo
 {
 public:
 	Bicicleta();
