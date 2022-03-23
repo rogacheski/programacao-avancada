@@ -12,10 +12,11 @@ private:
 	std::vector<std::string> extrato;
 
 public:
-	Conta();
-	Conta(std::string numero, std::string agencia, Cliente cliente);
+	Conta() { mostrarConta(); };
+	Conta(std::string numero, std::string agencia, Cliente cliente) { mostrarConta(); };
 	void depositar(float valor);
 	void retirar(float valor);
 	void const imprimeExtrato();
 	void alterarCliente(Cliente cliente);
+	void mostrarConta();
 };
