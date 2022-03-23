@@ -13,7 +13,7 @@ private:
 
 public:
 	Conta() { mostrarConta(); };
-	Conta(std::string numero, std::string agencia, Cliente cliente) { mostrarConta(); };
+	Conta(std::string numero, std::string agencia, Cliente cliente) : Cliente(cliente) { mostrarConta(); };
 	void depositar(float valor);
 	void retirar(float valor);
 	void const imprimeExtrato();
