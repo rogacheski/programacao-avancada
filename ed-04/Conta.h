@@ -18,5 +18,5 @@ public:
 	void retirar(float valor);
 	void const imprimeExtrato();
 	void alterarCliente(Cliente cliente);
-	void mostrarConta();
+	void mostrarConta() const;
 };
