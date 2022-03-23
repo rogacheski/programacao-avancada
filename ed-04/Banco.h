@@ -8,6 +8,6 @@ private:
   vector<Conta> _registro;
   
 public:
-  Banco(int tamanho);
+  Banco(int tamanho) : _tamanho(tamanho);
   void imprimirContas();
 }
