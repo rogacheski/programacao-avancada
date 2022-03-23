@@ -4,7 +4,7 @@
 class Banco
 {
 private:
-  vector<Conta> registro;
+  vector<Conta> _registro;
   
 public:
   void imprimirContas();
