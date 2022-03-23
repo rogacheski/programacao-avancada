@@ -3,18 +3,6 @@
 #include <iomanip>
 using namespace std;
 
-Conta::Conta()
-{
-
-};
-
-Conta::Conta(string numero, string agencia, Cliente cliente)
-{
-	_numero = numero;
-	_agencia = agencia;
-	_cliente = cliente;
-};
-
 void Conta::depositar(float valor)
 {
 	_saldo += valor;
@@ -45,4 +33,12 @@ void const Conta::imprimeExtrato()
 void Conta::alterarCliente(Cliente cliente)
 {
 	_cliente = cliente;
+};
+
+Conta::mostrarConta()
+{
+	cout << "Numero: " << _numero << endl;
+	cout << "Agencia: " << _agencia << endl;
+	_cliente.mostrarCliente();
+	cout << "Saldo: " << _saldo << endl;
 };
