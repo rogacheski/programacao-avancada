@@ -9,5 +9,5 @@ private:
   
 public:
   Banco(int tamanho) : _tamanho(tamanho);
-  void imprimirContas();
+  void imprimirContas() const;
 }
