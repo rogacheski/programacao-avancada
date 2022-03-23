@@ -35,7 +35,7 @@ void Conta::alterarCliente(Cliente cliente)
 	_cliente = cliente;
 };
 
-void Conta::mostrarConta()
+void Conta::mostrarConta() const
 {
 	cout << "Numero: " << _numero << endl;
 	cout << "Agencia: " << _agencia << endl;
