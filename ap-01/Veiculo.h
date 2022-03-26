@@ -4,13 +4,14 @@
 class Veiculo
 {
  private:
-  int _codigo = 0;
-  std::string _placa = "";
-  std::string _cor = "";
-  float _valor = 0.0;
-  bool _disponivel = 1;
+  int _codigo;
+  std::string _placa;
+  std::string _cor;
+  float _valor;
+  bool _disponivel;
   
  public:
+  Veiculo() : _codigo(0), _placa(""), _cor(""), _valor(0.0), _disponivel(1);
   void setCodigo(int codigo) { _codigo = codigo; };
   void setPlaca(std::string placa) { _placa = placa; };
   void setCor(std::string cor) { _cor = cor; };
@@ -21,5 +22,5 @@ class Veiculo
   float getValor() const { return _valor; };
   void aluga() { _disponivel = 0; };
   void devolve() { _disponivel = 1; };
-  virtual void imprime() const;
+  virtual void imprime() const = 0;
 };
