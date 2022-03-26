@@ -21,5 +21,5 @@ class Veiculo
   float getValor() const { return _valor; };
   void aluga() { _disponivel = 0; };
   void devolve() { _disponivel = 1; };
-  void imprime() const;
+  virtual void imprime() const;
 };
