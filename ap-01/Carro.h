@@ -10,7 +10,7 @@ private:
 	int _quilometragem;
 
 public:
-	Carro() : Veiculo(), _quilometragem = 0;
+	Carro() : Veiculo(), _quilometragem = 0, TipoCombustivel();
 	void setCombustivel(TipoCombustivel& combustivel) { _combustivel = combustivel; };
 	TipoCombustivel getCombustivel() const { return _combustivel; };
 	int getQuilometragem() const { return _quilometragem; };
