@@ -20,7 +20,7 @@ class Veiculo
   std::string getPlaca() const { return _placa; };
   std::string getCor() const { return _cor; };
   float getValor() const { return _valor; };
-  void aluga() { _disponivel = 0; };
-  void devolve() { _disponivel = 1; };
+  virtual void aluga() = 0;
+  virtual void devolve() = 0;
   virtual void imprime() const = 0;
 };
